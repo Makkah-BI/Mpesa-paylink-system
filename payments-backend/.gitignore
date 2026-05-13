@@ -1,0 +1,19 @@
+node_modules/
+.env
+ngrok.exe
+data/
+# Backend
+payments-backend/node_modules/
+payments-backend/.env
+payments-backend/data/
+payments-backend/receipts/
+payments-backend/paylink.db
+
+# Frontend
+client/node_modules/
+client/build/
+client/.env.local
+
+# OS files
+.DS_Store
+Thumbs.db

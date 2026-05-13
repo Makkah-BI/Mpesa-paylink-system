@@ -1,0 +1,694 @@
+/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
+
+/* ─── CSS Variables ─────────────────────────────────────────────────────────── */
+:root {
+  --green-dark: #005a00;
+  --green: #007a00;
+  --green-mid: #00a000;
+  --green-light: #4cbb4c;
+  --green-pale: #e8f5e9;
+  --green-glow: rgba(0, 160, 0, 0.18);
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+
+  --border: #e5e7eb;
+  --surface: #ffffff;
+  --bg: #f0f7f0;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 80, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 40px rgba(0, 80, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Root layout ───────────────────────────────────────────────────────────── */
+.pp-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 50% -20%,
+      rgba(0, 160, 0, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 110%,
+      rgba(0, 122, 0, 0.08) 0%,
+      transparent 55%
+    );
+  font-family: var(--font-body);
+  padding: 24px 16px;
+}
+
+/* ─── Card ──────────────────────────────────────────────────────────────────── */
+.pp-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0, 120, 0, 0.08);
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+.pp-header {
+  background: linear-gradient(
+    135deg,
+    var(--green-dark) 0%,
+    var(--green) 55%,
+    var(--green-mid) 100%
+  );
+  padding: 32px 36px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pp-header::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+}
+
+.pp-header::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -20px;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+}
+
+.pp-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.pp-logo-m {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.pp-logo-pesa {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 1px;
+}
+
+.pp-tagline {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Form ──────────────────────────────────────────────────────────────────── */
+.pp-form {
+  padding: 32px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pp-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.pp-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fafafa;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  overflow: hidden;
+}
+
+.pp-input-wrap:focus-within {
+  border-color: var(--green-mid);
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--green-glow);
+}
+
+.pp-prefix {
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-right: 1.5px solid var(--border);
+  white-space: nowrap;
+  line-height: 46px;
+  background: rgba(0, 0, 0, 0.025);
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.pp-input-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-width: 0;
+}
+
+.pp-input-wrap input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.pp-input-wrap input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Remove number spinners */
+.pp-input-wrap input[type="number"]::-webkit-outer-spin-button,
+.pp-input-wrap input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.pp-input-wrap input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.pp-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-left: 2px;
+}
+
+/* ─── Error ─────────────────────────────────────────────────────────────────── */
+.pp-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+/* ─── Pay button ────────────────────────────────────────────────────────────── */
+.pp-btn-pay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 24px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    opacity 0.15s;
+  box-shadow: 0 4px 14px rgba(0, 120, 0, 0.35);
+  margin-top: 4px;
+}
+
+.pp-btn-pay:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 120, 0, 0.45);
+}
+
+.pp-btn-pay:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pp-btn-pay:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.pp-btn-pay.pp-btn-loading {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+}
+
+/* ─── Spinner ───────────────────────────────────────────────────────────────── */
+.pp-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pp-security-note {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ─── Polling state ─────────────────────────────────────────────────────────── */
+.pp-polling {
+  padding: 40px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.pp-pulse-ring {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pp-pulse-ring::before,
+.pp-pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--green-glow);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.pp-pulse-ring::after {
+  animation-delay: 0.8s;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.pp-phone-icon {
+  font-size: 38px;
+  position: relative;
+  z-index: 1;
+  animation: phone-ring 1.4s ease-in-out infinite;
+}
+
+@keyframes phone-ring {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-12deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.pp-polling h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.pp-polling-msg {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.pp-amount-badge {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  font-size: 22px;
+  font-weight: 800;
+  padding: 10px 28px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  letter-spacing: -0.5px;
+}
+
+.phone-formatted {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--green);
+}
+
+.pp-polling-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pp-polling-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-light);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.pp-polling-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.pp-polling-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.pp-poll-counter {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.pp-btn-cancel {
+  padding: 10px 28px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+  margin-top: 8px;
+}
+
+.pp-btn-cancel:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+/* ─── Success state ─────────────────────────────────────────────────────────── */
+.pp-success {
+  padding: 36px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.pp-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 6px 24px rgba(0, 120, 0, 0.35);
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pp-success h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.pp-success-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: -4px;
+}
+
+.pp-receipt-table {
+  width: 100%;
+  background: var(--green-pale);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: left;
+  margin-top: 4px;
+}
+
+.pp-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 18px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(0, 100, 0, 0.07);
+}
+
+.pp-receipt-row:last-child {
+  border-bottom: none;
+}
+
+.pp-receipt-row span {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pp-receipt-row strong {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-all;
+}
+
+.pp-btn-receipt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 120, 0, 0.3);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  margin-top: 8px;
+}
+
+.pp-btn-receipt:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 120, 0, 0.4);
+}
+
+.pp-btn-new {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 100%;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.pp-btn-new:hover {
+  border-color: var(--green-mid);
+  color: var(--green);
+  background: var(--green-pale);
+}
+
+/* ─── Failed state ──────────────────────────────────────────────────────────── */
+.pp-failed {
+  padding: 36px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.pp-failed-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 6px 24px rgba(220, 38, 38, 0.3);
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pp-failed h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.pp-failed-msg {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.pp-btn-retry {
+  padding: 14px 40px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 120, 0, 0.3);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  margin-top: 8px;
+}
+
+.pp-btn-retry:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 120, 0, 0.4);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .pp-form,
+  .pp-polling,
+  .pp-success,
+  .pp-failed {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .pp-header {
+    padding: 24px 24px 20px;
+  }
+}
